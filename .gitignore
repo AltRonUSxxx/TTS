@@ -1,0 +1,28 @@
+# Результаты сборки (артефакты)
+[Bb]in/
+[Oo]bj/
+out/
+
+# Файлы пользовательских настроек (Visual Studio)
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Секреты и локальные настройки
+appsettings.Development.json
+secrets.json
+
+# Инструменты разработки и пакеты
+.vscode/
+.idea/
+node_modules/
+.vs/
+
+# Логи и временные файлы
+*.log
+*.tmp
+
+app.db
+app.db-shm
+app.db-wal
