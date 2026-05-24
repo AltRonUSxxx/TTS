@@ -1,10 +1,108 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Authorization";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-5">
+            @if(!string.IsNullOrEmpty(Model.Message))
+            {
+                <div class="alert alert-warning">
+                    @Model.Message
+                </div>
+            }
+
+            @if(Model.IsAuthorized)
+            {
+                <div class="card shadow">
+                    <div class="card-body text-center">
+                        <h2>
+                            Welcome!
+                        </h2>
+
+                        <div class="d-flex justify-content-center gap-2 mt-3">
+                            <a asp-page="/Reader" class="btn btn-primary">
+                                Open reader
+                            </a>
+
+                            <form method="post" asp-page-handler="LogOut">
+                                <button class="btn btn-danger">Log out</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4"> TextToSpeech</h2>
+                        <ul class="nav nav-tabs mb-3">
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-target="#login" type="button">
+                                    Login
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link active " data-bs-target="#register" type="button">
+                                    Register
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="login">
+                        <form method="post" asp-page-handler="Login">
+                            <div class="mb-3">
+                                <label class="form-label">Login</label>
+                                <input asp-for="LoginLogin" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input asp-for="LoginPassword" />
+                            </div>
+                            <button class="btn btn-primary w-100" type="submit">Login</button>
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="register">
+                        <form method="post" asp-page-handler="Register">
+                            <div class="mb-3">
+                                <label class="form-label">Login</label>
+                                <input asp-for="RegisterName" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Login</label>
+                                <input asp-for="RegisterLogin" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Login</label>
+                                <input asp-for="RegisterPassword" type="password"/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Login</label>
+                                <input asp-for="RegisterConfrimPassword" type="password" />
+                            </div>
+                            <button class="btn btn-primary w-100" type="submit">Login</button>
+                        </form>
+
+                    </div>
+
+
+                </div>
+            }
+
+        </div>
+
+    </div>
 </div>

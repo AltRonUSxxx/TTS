@@ -1,0 +1,86 @@
+﻿@page
+@model TTS.Pages.readerModel
+@{
+	ViewData["Title"] = "Reader";
+}
+
+<div class="container-fluid mt-5">
+	<div class="row">
+
+		<div class="col-lg-9">
+			<h1 class="mb-3">
+				Text To Speech
+			</h1>
+			<div class="alert alert-info">
+				Project for Microsoft Edge!
+			</div>
+
+			<div class="mb-3">
+				<label Text>
+
+				</label>
+
+				<textarea id="text-input" rows="10" class="form-control">
+					First sentence, second sentence, third sentence
+				</textarea>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">
+					Read zone
+				</label>
+				<div class="border rounded p-4 bg-light reading-area" id="text-container">
+					Press read for start
+				</div>
+			</div>
+		</div>
+
+		<div class="col-lg-3 ">
+			<div class="control-panel shadow">
+				<h4 class="mb-3">Control</h4>
+				<div class="mb-3">
+					<label class="form-label">
+						Voice
+					</label>
+					<select id="voice-select" class="form-control">
+						<option>Loading...</option>
+					</select>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label">
+						Rate
+					</label>
+					<select id="rate-select" class="form-control">
+						<option value="0.5">0.5x</option>
+						<option value="1" selected>1x</option>
+						<option value="1.25">1.25x</option>
+						<option value="1.5">1.5x</option>
+						<option value="2.0">2.0x</option>
+					</select>
+				</div>
+
+				<div class="d-grid gap-2">
+					<button id="btn-play" class="btn btn-success">Play</button>
+					<button id="btn-pause" class="btn btn-success">Pause</button>
+					<button id="btn-stop" class="btn btn-success">Stop</button>
+					<button id="btn-prev" class="btn btn-success">Previous</button>
+					<button id="btn-next" class="btn btn-success">Next</button>
+				</div>
+
+				<hr />
+
+				<div id="status" class="text-muted">
+					Ready
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+@section Scripts
+{
+	<script src="~/js/reader.js" asp-append-version="true"></script>
+}
