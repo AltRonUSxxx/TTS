@@ -1,0 +1,43 @@
+﻿@model List<TTS.Models.SpeechLog>
+@{
+	ViewData["Title"] = "Admin logs";
+}
+
+<div class="container mt-5">
+	<h1 class="mb-4">
+		MVC Admin: TTS logs
+	</h1>
+
+	@if(Model.Count == 0)
+	{
+		<div class="alert alert-info">
+			Logs not yet
+		</div>
+	}
+	else
+	{
+		<table class="table table-bordered table-hover align-middle">
+			<thead class="table-datk">
+				<tr>
+					<th>User</th>
+					<th>Text</th>
+					<th>Voice</th>
+					<th>Rate</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(var log in Model)
+				{
+					<tr>
+						<td>@log.User?.Name</td>
+						<td style="max-width: 400px">@log.Text</td>
+						<td>@log.VoiceName</td>
+						<td>@log.Rate</td>
+						<td>@log.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	}
+</div>
