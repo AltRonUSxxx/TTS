@@ -11,9 +11,9 @@ namespace TTS.Pages
     {
         private readonly AppDbContext _context;
         private readonly PasswordHasher<User> _passHasher;
-        private readonly ICurrentUserSevice _currentUserSevice;
+        private readonly ICurrentUserService _currentUserSevice;
 
-        public IndexModel(AppDbContext context, ICurrentUserSevice currentUserSevice)
+        public IndexModel(AppDbContext context, ICurrentUserService currentUserSevice)
         {
             _passHasher = new PasswordHasher<User>();
             _context = context;
@@ -50,7 +50,7 @@ namespace TTS.Pages
             CurrentUserId = user.Id;
         }
 
-        public IActionResult OnPostRegiser()
+        public IActionResult OnPostRegister()
         {
             LoadCurrentUser();
 
@@ -99,7 +99,13 @@ namespace TTS.Pages
                 return Page();
             }
 
-            User user = _context.Users.FirstOrDefault(u => u.Login == RegisterLogin);
+            User user = _context.Users.FirstOrDefault(u => u.Login == LoginLogin);
+
+            if(user == null)
+            {
+                Message = "Uncorret login or password";
+                return Page();
+            }
 
             if (user.Login != LoginLogin)
             {

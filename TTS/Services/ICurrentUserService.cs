@@ -1,7 +1,7 @@
 ﻿using TTS.Models;
 namespace TTS.Services
 {
-    public interface ICurrentUserSevice
+    public interface ICurrentUserService
     {
         bool IsLoggedIn(HttpContext httpContext);
         int? GetCurrentUserId(HttpContext httpContext);

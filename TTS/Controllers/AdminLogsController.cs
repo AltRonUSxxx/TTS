@@ -3,12 +3,12 @@ using TTS.Services;
 
 namespace TTS.Controllers
 {
-    public class AdminLogsControllers : Controller
+    public class AdminLogsController : Controller
     {
         private readonly ISpeechLogService _speechLogService;
-        private readonly ICurrentUserSevice _currentUserSevice;
+        private readonly ICurrentUserService _currentUserSevice;
 
-        public AdminLogsControllers(ISpeechLogService speechLogService, ICurrentUserSevice currentUserSevice)
+        public AdminLogsController(ISpeechLogService speechLogService, ICurrentUserService currentUserSevice)
         {
             _speechLogService = speechLogService;
             _currentUserSevice = currentUserSevice;

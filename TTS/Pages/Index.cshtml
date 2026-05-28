@@ -38,67 +38,60 @@
             else
             {
                 <div class="card shadow">
-                    <div class="card-body">
-                        <h2 class="text-center mb-4"> TextToSpeech</h2>
-                        <ul class="nav nav-tabs mb-3">
-                            <li class="nav-item">
-                                <button class="nav-link active" data-bs-target="#login" type="button">
-                                    Login
-                                </button>
-                            </li>
-                            <li class="nav-item">
-                                <button class="nav-link active " data-bs-target="#register" type="button">
-                                    Register
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                        <div class="card-body">
+                            <h2 class="text-center mb-4"> TextToSpeech</h2>
+                            <ul class="nav nav-tabs mb-3">
+                                <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#logination" type="button">
+                                        Login
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#registration" type="button">
+                                        Register
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
 
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="login">
-                        <form method="post" asp-page-handler="Login">
+                    <div class="ms-3 mb-3 me-3 tab-content">
+                        <div class="tab-pane fade show active" id="logination">
+                            <form method="post" asp-page-handler="Login">
+                                <div class="mb-3">
+                                    <label class="form-label">Login</label>
+                                    <input asp-for="LoginLogin" class="form-control" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Password</label>
+                                    <input asp-for="LoginPassword" class="form-control" />
+                                </div>
+                                <button class="btn btn-primary w-100" type="submit">Login</button>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="registration">
+                        <form method="post" asp-page-handler="Register">
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input asp-for="RegisterName" class="form-control" />
+                            </div>
                             <div class="mb-3">
                                 <label class="form-label">Login</label>
-                                <input asp-for="LoginLogin" />
+                                <input asp-for="RegisterLogin" class="form-control" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Password</label>
-                                <input asp-for="LoginPassword" />
+                                <input class="form-control" asp-for="RegisterPassword" type="password"/>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password confirm</label>
+                                <input class="form-control" asp-for="RegisterConfrimPassword" type="password" />
                             </div>
                             <button class="btn btn-primary w-100" type="submit">Login</button>
                         </form>
 
+                        </div>
                     </div>
-
-
-                </div>
-
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="register">
-                        <form method="post" asp-page-handler="Register">
-                            <div class="mb-3">
-                                <label class="form-label">Login</label>
-                                <input asp-for="RegisterName" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Login</label>
-                                <input asp-for="RegisterLogin" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Login</label>
-                                <input asp-for="RegisterPassword" type="password"/>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Login</label>
-                                <input asp-for="RegisterConfrimPassword" type="password" />
-                            </div>
-                            <button class="btn btn-primary w-100" type="submit">Login</button>
-                        </form>
-
-                    </div>
-
-
                 </div>
             }
 

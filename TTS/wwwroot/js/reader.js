@@ -12,7 +12,7 @@
     const btnStop = document.getElementById("btn-stop");
     const btnPrev = document.getElementById("btn-prev");
     const btnNext = document.getElementById("btn-next");
-    const statusText = document.getElementById("Status");
+    const statusText = document.getElementById("status");
 
     let rawSegments = [];
     let currentSentenceIndex = 0;
@@ -138,16 +138,15 @@
             textContainer.textContent = 'Enter text for synthes';
             return;
         }
-        const regEx = "/([.!?\n]+)/";
 
-        const parts = text.split(regEx);
+        const parts = text.split("/([.!?\n]+)/");
 
         for (let i = 0; i < text.length; i++) {
             if (!parts[i]) {
                 continue;
             }
 
-            if (regEx.test(parts[i])) {
+            if ("/([.!?\n]+)/".test(parts[i])) {
                 if (rawSegments.length > 0) {
                     rawSegments[rawSegments.length - 1] += parts[i];
                 }

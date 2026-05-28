@@ -10,8 +10,8 @@ namespace TTS.Pages
 {
     public class readerModel : PageModel
     {
-        private readonly ICurrentUserSevice _currentUserSevice;
-        public readerModel(ICurrentUserSevice currentUserSevice)
+        private readonly ICurrentUserService _currentUserSevice;
+        public readerModel(ICurrentUserService currentUserSevice)
         {
             _currentUserSevice = currentUserSevice;
         }

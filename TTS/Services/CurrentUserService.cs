@@ -3,7 +3,7 @@ using TTS.Models;
 
 namespace TTS.Services
 {
-    public class CurrentUserService : ICurrentUserSevice
+    public class CurrentUserService : ICurrentUserService
     {
         private readonly AppDbContext _context;
 
@@ -12,7 +12,7 @@ namespace TTS.Services
             _context = context;
         }
 
-        public bool IsAuthenticated(HttpContext httpContext)
+        public bool IsLoggedIn(HttpContext httpContext)
         {
             return httpContext.Session.GetInt32("UserId") != null;
         }
@@ -25,7 +25,7 @@ namespace TTS.Services
         public User? GetCurrentUser(HttpContext httpContext)
         {
             var userId = GetCurrentUserId(httpContext);
-            if(userId != null)
+            if(userId == null)
             {
                 return null;
             }

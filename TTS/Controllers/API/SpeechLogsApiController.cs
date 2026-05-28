@@ -10,9 +10,9 @@ namespace TTS.Controllers.API
     public class SpeechLogsApiController : ControllerBase
     {
         private readonly ISpeechLogService _speechLogService;
-        private readonly ICurrentUserSevice _currentUserSevice;
+        private readonly ICurrentUserService _currentUserSevice;
 
-        public SpeechLogsApiController(ISpeechLogService speechLogService, ICurrentUserSevice currentUserSevice)
+        public SpeechLogsApiController(ISpeechLogService speechLogService, ICurrentUserService currentUserSevice)
         {
             _speechLogService = speechLogService;
             _currentUserSevice = currentUserSevice;

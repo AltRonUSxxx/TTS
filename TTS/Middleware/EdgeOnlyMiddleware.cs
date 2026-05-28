@@ -8,7 +8,7 @@
             _next = next;
         }
 
-        public async Task InvokeAstnc(HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             var path = context.Request.Path.Value?.ToLower() ?? "";
             if(path.StartsWith("/swagger"))
